@@ -1,0 +1,70 @@
+[
+  {
+    "Name": "Motherboard",
+    "Description": "A motherboard connects all components of a computer, allowing communication between CPU, RAM, and peripherals."
+  },
+  {
+    "Name": "Graphics Card",
+    "Description": "A graphics card processes images and video, enhancing gaming, design, and rendering performance."
+  },
+  {
+    "Name": "RAM",
+    "Description": "Random Access Memory (RAM) temporarily stores data for quick access by the CPU, improving multitasking and speed."
+  },
+  {
+    "Name": "Processor",
+    "Description": "A CPU executes instructions, processing data and running applications within a computer system."
+  },
+  {
+    "Name": "Computer Case",
+    "Description": "A protective enclosure housing computer components, providing airflow and organization."
+  },
+  {
+    "Name": "Power Supply",
+    "Description": "Converts electricity from an outlet into usable power for a computer's components."
+  },
+  {
+    "Name": "Laptops",
+    "Description": "Portable computers with built-in screens, keyboards, and batteries for on-the-go use."
+  },
+  {
+    "Name": "Fans",
+    "Description": "Cooling fans help regulate temperature inside a computer, preventing overheating."
+  },
+  {
+    "Name": "External Hard",
+    "Description": "A storage device connected via USB, used for backups and extra file storage."
+  },
+  {
+    "Name": "Internal Hard",
+    "Description": "A storage drive inside a computer, used to store the operating system, files, and applications."
+  },
+  {
+    "Name": "Memory Card",
+    "Description": "A small storage device used in cameras, phones, and computers for data transfer and backup."
+  },
+  {
+    "Name": "Keyboard",
+    "Description": "An input device with keys for typing and controlling a computer."
+  },
+  {
+    "Name": "Laptop Backpacks",
+    "Description": "Backpacks designed with compartments to safely carry laptops and accessories."
+  },
+  {
+    "Name": "Mouse",
+    "Description": "A pointing device used to control a cursor on a computer screen."
+  },
+  {
+    "Name": "Speaker",
+    "Description": "A device that outputs audio, used for music, calls, and media playback."
+  },
+  {
+    "Name": "Headphones",
+    "Description": "Wearable speakers that provide private audio for music, gaming, or calls."
+  },
+  {
+    "Name": "Microphones",
+    "Description": "A device that captures sound for recording, communication, and broadcasting."
+  }
+]
