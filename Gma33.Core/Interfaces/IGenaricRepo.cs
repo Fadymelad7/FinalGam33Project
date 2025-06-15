@@ -12,10 +12,17 @@ namespace Gma33.Core.Interfaces
     {
 
         Task<IReadOnlyList<T>> GetAllAsync();
+        Task<T?> GetAsync(int id);
 
         Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecfication<T> specfication);
 
         Task<int> getCountAsync(ISpecfication<T> specifications);
 
+
+        Task AddAsync(T item);
+
+        void Update(T item);
+
+        void Delete(T item);
     }
 }

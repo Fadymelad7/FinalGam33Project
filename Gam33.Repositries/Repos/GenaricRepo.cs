@@ -29,10 +29,35 @@ namespace Gam33.Repositries.Repos
             return await SpecficationEvaluate.SpecficationEvaluation<T>.CreateQuery(_context.Set<T>(), specfication).ToListAsync();
         }
 
+
+        public async Task<T?> GetAsync(int id)
+        {
+            /// we Delete it because we use Specification Design Pattern and we will build it Dynamic
+            ///if (typeof(T) == typeof(Product))
+            ///{
+            ///    return (IEnumerable<T>)await _context.Set<Product>().Include(P => P.Brand).Include(p => p.Category).ToListAsync();
+            ///}
+
+            return await _context.Set<T>().FindAsync(id);
+        }
         public async Task<int> getCountAsync(ISpecfication<T> specifications)
         {
 
             return await SpecficationEvaluate.SpecficationEvaluation<T>.CreateQuery(_context.Set<T>(), specifications).CountAsync();
+        }
+        public async Task AddAsync(T item)
+        {
+            await _context.Set<T>().AddAsync(item);
+        }
+
+        public void Update(T item)
+        {
+            _context.Set<T>().Update(item);
+        }
+
+        public void Delete(T item)
+        {
+            _context.Set<T>().Remove(item);
         }
     }
 }

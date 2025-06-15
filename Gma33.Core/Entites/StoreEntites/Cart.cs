@@ -8,9 +8,7 @@ namespace Gma33.Core.Entites.StoreEntites
 {
     public class Cart : BaseEntity
     {
-        public decimal TotalPrice { get; set; }
-        public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public string UserEmail { get; set; }
         public ICollection<CartProduct> CartProducts { get; set; } = new HashSet<CartProduct>();
     }
 }

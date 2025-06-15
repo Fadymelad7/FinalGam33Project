@@ -23,7 +23,6 @@ namespace Gma33.Repositries.Data.Configrations
                  .HasForeignKey(c => c.CartId)
                  .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasKey(cp => new { cp.ProductId, cp.CartId });
         }
     }
 }

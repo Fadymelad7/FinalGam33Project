@@ -2,11 +2,15 @@
 using Gam33.Repositries.Data;
 using Gam33.Repositries.Identity;
 using Gam33.Repositries.Repos;
+using Gam33.Repositries.UnitOfWork;
 using GAM33.Helpers;
 using Gma33.Core.Entites.IdentityEntites;
 using Gma33.Core.Interfaces;
 using Gma33.Core.Interfaces.IdentityServicesInterfaces;
+using Gma33.Core.Services;
 using Gma33.Core.Specfication;
+using Gma33.Core.UnitOfWorkInterface;
+using Gma33.Services.OrderService;
 using Gma33.Services.TokenServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -45,6 +49,11 @@ namespace GAM33
 
 
             builder.Services.AddScoped<IToken, TokenServices>();
+            builder.Services.AddScoped<ICartRepo, CartRepo>();
+            builder.Services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
+            builder.Services.AddScoped(typeof(IOrderService), typeof(OrderService));
+
+
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                .AddJwtBearer(options =>
                {
@@ -64,6 +73,7 @@ namespace GAM33
                });
             builder.Services.AddScoped(typeof(IGenaricRepo<>), typeof(GenaricRepo<>));
             builder.Services.AddAutoMapper(typeof(MappingProfile));
+
             var app = builder.Build();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -95,7 +105,7 @@ namespace GAM33
             }
 
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseStaticFiles();
