@@ -28,6 +28,7 @@ namespace GAM33.Controllers
         {
             return User.FindFirstValue(ClaimTypes.Email);
         }
+
         [HttpPost]
         public async Task<ActionResult<WishlistDto>> CreateOrUpdateWishlist(WishlistDto dto)
         {
