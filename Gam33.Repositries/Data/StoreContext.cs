@@ -30,7 +30,11 @@ namespace Gam33.Repositries.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Cart> Carts { get; set; }
+
         public DbSet<CartProduct> cartProducts { get; set; }
+        public DbSet<Wishlist> Wishlists { get; set; }
+        public DbSet<WishlistItem> WishlistItems { get; set; }
+
         public DbSet<PaymentMethod> paymentMethods { get; set; }
         #region New Order Module Entites
 

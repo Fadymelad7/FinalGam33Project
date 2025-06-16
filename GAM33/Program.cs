@@ -52,12 +52,10 @@ namespace GAM33
             builder.Services.AddScoped<ICartRepo, CartRepo>();
             builder.Services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             builder.Services.AddScoped(typeof(IOrderService), typeof(OrderService));
+            builder.Services.AddScoped(typeof(IWishlistRepo), typeof(WishlistRepo));
 
-            builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
-    });
+
+
 
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                .AddJwtBearer(options =>

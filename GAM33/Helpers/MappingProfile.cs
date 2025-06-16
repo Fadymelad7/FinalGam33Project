@@ -23,6 +23,23 @@ namespace GAM33.Helpers
                 .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Product.Price))
                 .ForMember(dest => dest.Details, opt => opt.MapFrom(src => src.Product.Details));
 
+
+
+            CreateMap<Wishlist, WishlistDto>()
+                .ForMember(dest => dest.WishlistItems, opt => opt.MapFrom(src => src.Items));
+
+            CreateMap<WishlistDto, Wishlist>()
+                .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.WishlistItems));
+
+            CreateMap<WishlistItem, WishlistItemDto>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Product.ProductName))
+                .ForMember(dest => dest.PictureUrl, opt => opt.MapFrom(src => src.Product.ImageUrl))
+                .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Product.Price))
+                .ForMember(dest => dest.Details, opt => opt.MapFrom(src => src.Product.Details));
+
+            CreateMap<WishlistItemDto, WishlistItem>(); // Needed for Reverse Mapping (optional but helpful)
+
+
             CreateMap<AddressDto, OrderAddress>();
 
 

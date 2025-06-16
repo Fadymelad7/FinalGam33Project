@@ -29,5 +29,8 @@ namespace Gma33.Core.Entites.StoreEntites
         [JsonIgnore]
 
         public ICollection<CartProduct> CartProducts { get; set; } = new HashSet<CartProduct>();
+        [JsonIgnore]
+        public ICollection<WishlistItem> WishlistItems { get; set; } = new HashSet<WishlistItem>();
+
     }
 }

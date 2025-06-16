@@ -10,16 +10,13 @@ namespace Gma33.Core.Specfication.ProductSpec
     public class ProductWithCategorySpec : BaseSpecfication<Product>
     {
         public ProductWithCategorySpec(ProductSpecPrams prams) : base(
-            
             p=>
             (string.IsNullOrEmpty(prams.Product) ||p.ProductName.Contains(prams.Product))
             &&
             (string.IsNullOrEmpty(prams.Category)||prams.Category==p.Category.Name)
-
             )
         {
             Includes.Add(p => p.Category);
-
             if (!string.IsNullOrEmpty(prams.sort))
             {
                 switch (prams.sort)
@@ -38,13 +35,6 @@ namespace Gma33.Core.Specfication.ProductSpec
                         break;
                 }
             }
-
-            else
-            {
-                AddOrderBy(p => p.ProductName);
-            }
-
-
            IsPagination((prams.PageIndex-1)*prams.pagesize,prams.pagesize);
         }
     }
