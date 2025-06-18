@@ -11,7 +11,7 @@ namespace Gma33.Core.Entites.OrderModule
     {
         public DeliveryMethod()
         {
-            
+          
         }
         public DeliveryMethod(string shortName, string description, string deliveryTime, decimal cost)
         {

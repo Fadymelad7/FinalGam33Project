@@ -18,6 +18,7 @@ namespace Gma33.Core.Interfaces
 
         Task<int> getCountAsync(ISpecfication<T> specifications);
 
+        Task<T?> GetAsyncWithSpec(ISpecfication<T> specifications);
 
         Task AddAsync(T item);
 

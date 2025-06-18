@@ -35,5 +35,18 @@ namespace GAM33.Controllers
 
             return Ok(new PaginationDto<ProductDto>(prams.PageIndex,prams.pagesize,mapp,count));
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ProductDto>> GetProductById(int id)
+        {
+            var spec = new ProductWithCategorySpec(id);
+            var Product = await _repo.GetAsyncWithSpec(spec);
+            if (Product == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<Product, ProductDto>(Product));
+        }
     }
 }

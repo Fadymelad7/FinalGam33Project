@@ -16,14 +16,10 @@ namespace Gma33.Core.Entites.StoreEntites
         public string Details { get; set; }
 
         public string? ImageUrl { get; set; }
-        // public ICollection<Customer> Customers { get; set; } = new HashSet<Customer>();
 
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
-
-        //public int AdminId { get; set; } // I See the product Should belongs only to spec category not to spec Admin  
-        //public Admin Admin { get; set; }
 
 
         [JsonIgnore]

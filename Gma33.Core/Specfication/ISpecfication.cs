@@ -24,5 +24,7 @@ namespace Gma33.Core.Specfication
         public int Take { get; set; }
 
         public bool EnablePagination { get; set; }
+        bool IsRandomOrder { get; }
+
     }
 }

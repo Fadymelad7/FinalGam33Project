@@ -1,4 +1,5 @@
 ﻿using Gam33.Repositries.Data;
+using Gam33.Repositries.SpecficationEvaluate;
 using Gma33.Core.Entites.StoreEntites;
 using Gma33.Core.Interfaces;
 using Gma33.Core.Specfication;
@@ -39,6 +40,10 @@ namespace Gam33.Repositries.Repos
             ///}
 
             return await _context.Set<T>().FindAsync(id);
+        }
+        public async Task<T?> GetAsyncWithSpec(ISpecfication<T> specifications)
+        {
+            return await SpecficationEvaluation<T>.CreateQuery(_context.Set<T>(), specifications).FirstOrDefaultAsync();
         }
         public async Task<int> getCountAsync(ISpecfication<T> specifications)
         {

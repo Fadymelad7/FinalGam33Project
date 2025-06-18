@@ -76,7 +76,7 @@ namespace GAM33.Controllers
             var email = GetUserEmail();
             var deleted = await _cartService.DeleteCartAsync(email);
             if (!deleted) return NotFound();
-            return Ok();
+            return Ok("Cart Deleted Successfully");
         }
     }
 }

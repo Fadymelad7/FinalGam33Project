@@ -18,7 +18,11 @@ namespace Gma33.Core.Specfication
         public int Skip { get; set; }
         public int Take { get; set; }
         public bool EnablePagination { get; set; }
+
+        public bool IsRandomOrder { get; set; }
         #endregion
+
+
 
         #region constructors
         public BaseSpecfication()
@@ -44,6 +48,10 @@ namespace Gma33.Core.Specfication
         {
 
             OrderByDesc = orderbydesc;
+        }
+        public void EnableRandomOrder()
+        {
+            IsRandomOrder = true;
         }
         #endregion
 

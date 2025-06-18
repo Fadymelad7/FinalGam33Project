@@ -10,10 +10,10 @@ namespace Gma33.Core.Specfication.ProductSpec
     public class ProductWithCategorySpec : BaseSpecfication<Product>
     {
         public ProductWithCategorySpec(ProductSpecPrams prams) : base(
-            p=>
-            (string.IsNullOrEmpty(prams.Product) ||p.ProductName.Contains(prams.Product))
+            p =>
+            (string.IsNullOrEmpty(prams.Product) || p.ProductName.Contains(prams.Product))
             &&
-            (string.IsNullOrEmpty(prams.Category)||prams.Category==p.Category.Name)
+            (string.IsNullOrEmpty(prams.Category) || prams.Category == p.Category.Name)
             )
         {
             Includes.Add(p => p.Category);
@@ -29,13 +29,25 @@ namespace Gma33.Core.Specfication.ProductSpec
                     case "PriceDesc":
                         AddOrderByDesc(P => P.Price);
                         break;
+                    case "Random":
+                        AddOrderBy(p => Guid.NewGuid()); // This gives you random order
+                        break;
 
                     default:
                         AddOrderBy(p => p.ProductName);
                         break;
                 }
             }
-           IsPagination((prams.PageIndex-1)*prams.pagesize,prams.pagesize);
+            IsPagination((prams.PageIndex - 1) * prams.pagesize, prams.pagesize);
         }
+
+
+
+
+        public ProductWithCategorySpec(int id) : base(p => p.Id == id)
+        {
+            Includes.Add(p => p.Category);
+        }
+
     }
 }

@@ -24,23 +24,29 @@ namespace Gam33.Repositries.SpecficationEvaluate
             {
                 Query = Query.Where(specfication.Critria);
             }
-
-            if (specfication.OrderBy is not null)
+            if (specfication.IsRandomOrder)
             {
-                Query = Query.OrderBy(specfication.OrderBy);
+                Query = Query.OrderBy(x => Guid.NewGuid());
             }
-
-            if (specfication.OrderByDesc is not null)
+            else
             {
-                Query = Query.OrderByDescending(specfication.OrderByDesc);
-            };
+                if (specfication.OrderBy is not null)
+                {
+                    Query = Query.OrderBy(specfication.OrderBy);
+                }
+
+                if (specfication.OrderByDesc is not null)
+                {
+                    Query = Query.OrderByDescending(specfication.OrderByDesc);
+                }
+            }
 
             if (specfication.EnablePagination == true)
             {
                 Query = Query.Skip(specfication.Skip).Take(specfication.Take);
             }
 
-        
+
 
             Query = specfication.Includes.Aggregate(Query, (currentQuery, NextQuery) => currentQuery.Include(NextQuery));
 
