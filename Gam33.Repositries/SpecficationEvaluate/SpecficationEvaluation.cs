@@ -40,7 +40,6 @@ namespace Gam33.Repositries.SpecficationEvaluate
                     Query = Query.OrderByDescending(specfication.OrderByDesc);
                 }
             }
-            Query = Query.OrderBy(x => Guid.NewGuid());
 
             if (specfication.EnablePagination == true)
             {
