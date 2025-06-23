@@ -11,6 +11,7 @@ namespace Gma33.Core.Specfication.ProductSpec
         public string? sort { get; set; }
         public string? Product { get; set; }
         public string? Category { get; set; }
+        public int? CategoryId { get; set; }
         private int PageSize = 32;
 
         public int pagesize

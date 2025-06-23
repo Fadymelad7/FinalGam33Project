@@ -14,6 +14,9 @@ namespace Gma33.Core.Specfication.ProductSpec
             (string.IsNullOrEmpty(prams.Product) || p.ProductName.Contains(prams.Product))
             &&
             (string.IsNullOrEmpty(prams.Category) || prams.Category == p.Category.Name)
+            &&
+            (!prams.CategoryId.HasValue || p.CategoryId == prams.CategoryId.Value)
+
             )
         {
             Includes.Add(p => p.Category);
@@ -30,7 +33,7 @@ namespace Gma33.Core.Specfication.ProductSpec
                         AddOrderByDesc(P => P.Price);
                         break;
                     case "Random":
-                        AddOrderBy(p => Guid.NewGuid()); // This gives you random order
+                        IsRandomOrder = true; 
                         break;
 
                     default:
